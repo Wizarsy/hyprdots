@@ -1,0 +1,11 @@
+[Colors:View]
+BackgroundNormal=#00000000
+
+[General]
+TerminalApplication=wezterm
+
+[UiSettings]
+ColorScheme=*
+
+[Icons]
+Theme=Tela-circle-purple-dark

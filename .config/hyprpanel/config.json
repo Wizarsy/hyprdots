@@ -4,7 +4,7 @@
   "dbus": {
     "enabled": true,
     "connect_timeout": "20s",
-    "connect_interval": "0.200s",
+    "connect_interval": "1.000s",
     "notifications": {
       "enabled": true
     },
@@ -23,9 +23,9 @@
     },
     "power": {
       "enabled": true,
-      "low_percent": 10,
+      "low_percent": 20,
       "critical_percent": 5,
-      "low_command": "",
+      "low_command": "/usr/bin/powerprofilesctl set power-saver",
       "critical_command": "",
       "hud_notifications": true
     }
@@ -74,7 +74,7 @@
             "active_monitor_only": true,
             "group_tasks": true,
             "hide_indicators": false,
-            "expand": true,
+            "expand": false,
             "max_size": 0,
             "pinned": []
           }
@@ -552,11 +552,11 @@
   "theme.bar.buttons.modules.cava.icon": "#73daca",
   "theme.bar.buttons.modules.cava.icon_background": "#272a3d",
   "theme.bar.buttons.modules.cava.border": "#73daca",
-  "theme.bar.floating": false,
+  "theme.bar.floating": true,
   "theme.bar.buttons.enableBorders": false,
   "theme.bar.border.location": "none",
   "theme.bar.buttons.dashboard.enableBorder": false,
-  "bar.launcher.autoDetectIcon": false,
+  "bar.launcher.autoDetectIcon": true,
   "theme.bar.buttons.workspaces.enableBorder": false,
   "bar.workspaces.show_icons": false,
   "bar.workspaces.show_numbered": false,
@@ -575,9 +575,82 @@
   "bar.network.showWifiInfo": true,
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": false,
-  "wallpaper.enable": true,
+  "wallpaper.enable": false,
   "theme.font.name": "CaskaydiaCove Nerd Font",
   "theme.font.label": "CaskaydiaCove Nerd Font",
   "theme.font.weight": 600,
-  "bar.clock.format": "%a %b %d  %H:%M:%S %p"
+  "bar.clock.format": "%H:%M:%S %d/%m/%y",
+  "theme.bar.location": "top",
+  "theme.bar.enableShadow": false,
+  "menus.media.displayTimeTooltip": true,
+  "menus.media.displayTime": true,
+  "theme.bar.buttons.modules.microphone.enableBorder": false,
+  "menus.transition": "crossfade",
+  "scalingPriority": "hyprland",
+  "menus.dashboard.controls.enabled": true,
+  "theme.bar.buttons.separator.margins": "0.15em",
+  "bar.layouts": {
+    "*": {
+      "left": [
+        "dashboard",
+        "workspaces",
+        "media"
+      ],
+      "middle": [
+        "clock",
+        "notifications"
+      ],
+      "right": [
+        "systray",
+        "volume",
+        "microphone",
+        "network",
+        "bluetooth",
+        "battery"
+      ]
+    }
+  },
+  "bar.notifications.show_total": true,
+  "theme.bar.buttons.network.enableBorder": false,
+  "bar.network.label": false,
+  "bar.bluetooth.label": false,
+  "bar.clock.showTime": true,
+  "bar.clock.showIcon": true,
+  "bar.media.show_active_only": false,
+  "bar.notifications.hideCountWhenZero": true,
+  "theme.bar.layer": "top",
+  "bar.workspaces.workspaceMask": false,
+  "bar.workspaces.applicationIconOncePerWorkspace": true,
+  "bar.workspaces.numbered_active_indicator": "underline",
+  "theme.bar.buttons.workspaces.smartHighlight": true,
+  "bar.workspaces.workspaces": 2,
+  "menus.volume.raiseMaximumVolume": false,
+  "theme.osd.muted_zero": true,
+  "bar.customModules.ram.pollingInterval": 1000,
+  "bar.customModules.ram.labelType": "percentage",
+  "theme.bar.buttons.modules.ram.enableBorder": false,
+  "bar.customModules.cpuTemp.pollingInterval": 1000,
+  "bar.customModules.cpu.pollingInterval": 1000,
+  "bar.customModules.storage.pollingInterval": 1000,
+  "bar.customModules.kbLayout.labelType": "code",
+  "bar.customModules.weather.unit": "metric",
+  "bar.customModules.microphone.label": false,
+  "menus.media.hideAlbum": false,
+  "tear": false,
+  "bar.media.truncation_size": 15,
+  "bar.media.show_label": true,
+  "bar.volume.label": false,
+  "bar.windowtitle.label": false,
+  "theme.bar.buttons.borderSize": "0.1em",
+  "theme.bar.buttons.spacing": "0.25em",
+  "bar.windowtitle.icon": true,
+  "bar.autoHide": "fullscreen",
+  "theme.bar.transparent": false,
+  "theme.bar.menus.card_radius": "0.4em",
+  "theme.bar.margin_sides": "25.0em",
+  "theme.bar.margin_top": "0em",
+  "theme.bar.border_radius": "0.4em",
+  "theme.bar.outer_spacing": "0.5em",
+  "theme.bar.buttons.padding_x": "0.7rem",
+  "theme.bar.buttons.radius": "0.2em"
 }
