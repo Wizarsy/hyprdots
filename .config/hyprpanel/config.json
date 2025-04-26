@@ -4,7 +4,7 @@
   "dbus": {
     "enabled": true,
     "connect_timeout": "20s",
-    "connect_interval": "1.000s",
+    "connect_interval": "0.200s",
     "notifications": {
       "enabled": true
     },
@@ -25,7 +25,7 @@
       "enabled": true,
       "low_percent": 20,
       "critical_percent": 5,
-      "low_command": "/usr/bin/powerprofilesctl set power-saver",
+      "low_command": "",
       "critical_command": "",
       "hud_notifications": true
     }
@@ -198,7 +198,7 @@
   "theme.bar.buttons.hover": "#414868",
   "theme.bar.buttons.background": "#272a3d",
   "theme.bar.menus.text": "#c0caf5",
-  "theme.bar.menus.border.color": "#414868",
+  "theme.bar.menus.border.color": "#313244",
   "theme.bar.buttons.media.background": "#272a3d",
   "theme.bar.menus.menu.volume.text": "#c0caf5",
   "theme.bar.menus.menu.volume.card.color": "#24283b",
@@ -576,8 +576,8 @@
   "theme.bar.menus.monochrome": false,
   "wallpaper.pywal": false,
   "wallpaper.enable": false,
-  "theme.font.name": "CaskaydiaCove Nerd Font",
-  "theme.font.label": "CaskaydiaCove Nerd Font",
+  "theme.font.name": "NotoSans Nerd Font",
+  "theme.font.label": "NotoSans Nerd Font",
   "theme.font.weight": 600,
   "bar.clock.format": "%H:%M:%S %d/%m/%y",
   "theme.bar.location": "top",
@@ -597,6 +597,7 @@
         "media"
       ],
       "middle": [
+        "weather",
         "clock",
         "notifications"
       ],
@@ -623,7 +624,7 @@
   "bar.workspaces.applicationIconOncePerWorkspace": true,
   "bar.workspaces.numbered_active_indicator": "underline",
   "theme.bar.buttons.workspaces.smartHighlight": true,
-  "bar.workspaces.workspaces": 2,
+  "bar.workspaces.workspaces": 3,
   "menus.volume.raiseMaximumVolume": false,
   "theme.osd.muted_zero": true,
   "bar.customModules.ram.pollingInterval": 1000,
@@ -636,7 +637,7 @@
   "bar.customModules.weather.unit": "metric",
   "bar.customModules.microphone.label": false,
   "menus.media.hideAlbum": false,
-  "tear": false,
+  "tear": true,
   "bar.media.truncation_size": 15,
   "bar.media.show_label": true,
   "bar.volume.label": false,
@@ -652,5 +653,11 @@
   "theme.bar.border_radius": "0.4em",
   "theme.bar.outer_spacing": "0.5em",
   "theme.bar.buttons.padding_x": "0.7rem",
-  "theme.bar.buttons.radius": "0.2em"
+  "theme.bar.buttons.radius": "0.3em",
+  "notifications.position": "top",
+  "bar.customModules.microphone.rightClick": "",
+  "bar.customModules.microphone.leftClick": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+  "theme.matugen_settings.scheme_type": "fidelity",
+  "theme.matugen": false,
+  "theme.bar.menus.border.radius": "0.7em"
 }
