@@ -659,5 +659,6 @@
   "bar.customModules.microphone.leftClick": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
   "theme.matugen_settings.scheme_type": "fidelity",
   "theme.matugen": false,
-  "theme.bar.menus.border.radius": "0.7em"
+  "theme.bar.menus.border.radius": "0.7em",
+  "menus.dashboard.powermenu.confirmation": false
 }
