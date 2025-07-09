@@ -18,7 +18,7 @@ $mainMod = SUPER
 # ░█▀▀░█▀█░█░█
 # ░█▀▀░█░█░▀▄▀
 # ░▀▀▀░▀░▀░░▀░
-
+env = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
 env = HYPRHOME,$HOME/.config/hypr
 env = GTK_THEME,TokyoNight
 env = HYPRCURSOR_SIZE,$cursorSize
