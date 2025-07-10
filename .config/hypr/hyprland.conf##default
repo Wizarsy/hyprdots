@@ -8,10 +8,12 @@ $editor = code
 
 $cursorSize = 24
 $cursorTheme = catppuccin-mocha-dark-cursors
+$iconTheme = 'Papirus-Dark'
+$gtkTheme = 'default'
 
 $font = 'NotoSans Nerd Font Propo Regular 9'
 $documentFont = 'NotoSerif Nerd Font Propo Regular 9'
-$monoFont = 'CaskaydiaMono Nerd Font Mono 14'
+$monoFont = 'CaskaydiaMono Nerd Font Mono Regular 14'
 
 $mainMod = SUPER
 
@@ -19,10 +21,10 @@ $mainMod = SUPER
 # ░█▀▀░█░█░▀▄▀
 # ░▀▀▀░▀░▀░░▀░
 env = TERMINAL,wezterm
+env = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
 env = HYPRSCRIPTS,$HOME/.config/hypr/scripts
 env = HYPRHOME,$HOME/.config/hypr
 env = GTK_THEME,TokyoNight
-# env = QT_STYLE_OVERRIDE,oomox
 env = QT_QPA_PLATAFORM,wayland;xcb
 env = QT_QPA_PLATFORMTHEME,qt5ct
 env = QT_SCALE_FACTOR,1 
@@ -36,10 +38,10 @@ env = CLUTTER_BACKEND,wayland
 env = XDG_CURRENT_DESKTOP,Hyprland
 env = XDG_SESSION_TYPE,wayland
 env = XDG_SESSION_DESKTOP,Hyprland
-# env = HYPRCURSOR_SIZE,$cursorSize
-env = XCURSOR_SIZE,$cursorSize
+env = HYPRCURSOR_THEME,$cursorTheme
+env = HYPRCURSOR_SIZE,$cursorSize
 env = XCURSOR_THEME,$cursorTheme
-env = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
+env = XCURSOR_SIZE,$cursorSize
 
 # ░█▄█░█▀█░█▀█░▀█▀░▀█▀░█▀█░█▀▄░█▀▀
 # ░█░█░█░█░█░█░░█░░░█░░█░█░█▀▄░▀▀█
@@ -63,8 +65,7 @@ exec-once = wl-paste --type image --watch cliphist store
 exec-once = hypridle
 exec-once = nm-applet
 exec-once = blueman-applet 
-exec-once = discord --start-minimized 
-exec-once = hyprpanel
+exec-once = discord --start-minimized
 
 # ░█▀█░█▀█░█▀█░█▀█░█▀▄░█▀▀░█▀█░█▀▀░█▀▀
 # ░█▀█░█▀▀░█▀▀░█▀█░█▀▄░█▀▀░█░█░█░░░█▀▀
@@ -72,29 +73,44 @@ exec-once = hyprpanel
 
 exec-once = gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu'
 
+exec-once = gsettings set org.gnome.desktop.interface font-name $font
+exec-once = gsettings set org.gnome.desktop.interface document-font-name $documentFont
+exec-once = gsettings set org.gnome.desktop.interface monospace-font-name $monoFont
+exec-once = gsettings set org.gnome.desktop.interface font-hinting 'full'
+exec-once = gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
+exec-once = gsettings set org.gnome.desktop.interface font-rga-order 'rgb'
+exec-once = gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+exec-once = gsettings set org.gnome.desktop.interface color-scheme 'default'
+exec-once = gsettings set org.gnome.desktop.sounds event-sounds true
+exec-once = gsettings set org.gnome.desktop.sounds input-feedback-sounds true
+
+exec-once = gsettings set org.gnome.desktop.interface icon-theme $iconTheme
+exec-once = gsettings set org.gnome.desktop.interface cursor-theme $cursorTheme
+exec-once = gsettings set org.gnome.desktop.interface cursor-size $cursorSize
+
+exec-once = gsettings set org.gnome.desktop.interface gtk-theme $gtkTheme
+exec-once = gsettings set org.gnome.desktop.interface toolbar-icons-size 'small'
+exec-once = gsettings set org.gnome.desktop.interface toolbar-style 'icons'
+exec-once = nwg-look -x
+
 # ░█▀▀░█▀█░█░░░█▀█░█▀▄░░░█▀▀░█▀▀░█░█░█▀▀░█▄█░█▀▀
 # ░█░░░█░█░█░░░█░█░█▀▄░░░▀▀█░█░░░█▀█░█▀▀░█░█░█▀▀
 # ░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀
 
-source = $HOME/.config/hypr/themes/TokyoNight.conf
+# source = $HOME/.config/hypr/themes/TokyoNight.conf
 
 # ░█▀▀░█░█░█▀▄░█▀▀░█▀█░█▀▄
 # ░█░░░█░█░█▀▄░▀▀█░█░█░█▀▄
 # ░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀
 
-exec-once = hyprctl setcursor $cursorTheme $cursorSize
-exec-once = gsettings set org.gnome.desktop.interface cursor-theme $cursorTheme
-exec-once = gsettings set org.gnome.desktop.interface cursor-size $cursorSize
+# exec-once = hyprctl setcursor $cursorTheme $cursorSize
+
 
 # ░█▀▀░█▀█░█▀█░▀█▀
 # ░█▀▀░█░█░█░█░░█░
 # ░▀░░░▀▀▀░▀░▀░░▀░
 
-exec-once = gsettings set org.gnome.desktop.interface font-name $font
-exec-once = gsettings set org.gnome.desktop.interface document-font-name $documentFont
-exec-once = gsettings set org.gnome.desktop.interface monospace-font-name $monoFont
-exec-once = gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
-exec-once = gsettings set org.gnome.desktop.interface font-hinting 'full'
+
 
 # ░█░█░█░█░█▀█░█▀▄░█░░░█▀█░█▀█░█▀▄░░░█▀▀░█▀█░█▀█░█▀▀░▀█▀░█▀▀
 # ░█▀█░░█░░█▀▀░█▀▄░█░░░█▀█░█░█░█░█░░░█░░░█░█░█░█░█▀▀░░█░░█░█
