@@ -1,157 +1,150 @@
-# ░█░█░█▀█░█▀▄░█▀▀
-# ░▀▄▀░█▀█░█▀▄░▀▀█
-# ░░▀░░▀░▀░▀░▀░▀▀▀
-$terminal = wezterm
-$fileManager = $HYPRSCRIPTS/term-launch yazi
-$menu = rofi -show drun
-$editor = code
-
-$cursorSize = 24
-$cursorTheme = catppuccin-mocha-dark-cursors
-$iconTheme = 'Papirus-Dark'
-$gtkTheme = 'default'
-
-$font = 'NotoSans Nerd Font Propo Regular 9'
-$documentFont = 'NotoSerif Nerd Font Propo Regular 9'
-$monoFont = 'CaskaydiaMono Nerd Font Mono Regular 14'
-
-$mainMod = SUPER
-
 # ░█▀▀░█▀█░█░█
 # ░█▀▀░█░█░▀▄▀
 # ░▀▀▀░▀░▀░░▀░
-env = TERMINAL,wezterm
-env = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
-env = HYPRSCRIPTS,$HOME/.config/hypr/scripts
-env = HYPRHOME,$HOME/.config/hypr
-env = GTK_THEME,TokyoNight
-env = QT_QPA_PLATAFORM,wayland;xcb
-env = QT_QPA_PLATFORMTHEME,qt5ct
-env = QT_SCALE_FACTOR,1 
-env = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
-env = GDK_BACKEND,wayland
-env = GDK_SCALE,1
-env = ELM_SCALE,1
-env = MOZ_ENABLE_WAYLAND,1
-env = SDL_VIDEODRIVER,wayland
-env = CLUTTER_BACKEND,wayland
-env = XDG_CURRENT_DESKTOP,Hyprland
-env = XDG_SESSION_TYPE,wayland
-env = XDG_SESSION_DESKTOP,Hyprland
-env = HYPRCURSOR_THEME,$cursorTheme
-env = HYPRCURSOR_SIZE,$cursorSize
-env = XCURSOR_THEME,$cursorTheme
-env = XCURSOR_SIZE,$cursorSize
 
-# ░█▄█░█▀█░█▀█░▀█▀░▀█▀░█▀█░█▀▄░█▀▀
-# ░█░█░█░█░█░█░░█░░░█░░█░█░█▀▄░▀▀█
-# ░▀░▀░▀▀▀░▀░▀░▀▀▀░░▀░░▀▀▀░▀░▀░▀▀▀
+envd = QT_QPA_PLATAFORM,wayland;xcb
+envd = QT_QPA_PLATFORMTHEME,qt5ct
+envd = QT_SCALE_FACTOR,1 
+envd = QT_WAYLAND_DISABLE_WINDOWDECORATION,1
+envd = GDK_BACKEND,wayland
+envd = GDK_SCALE,1
+envd = ELM_SCALE,1
+envd = MOZ_ENABLE_WAYLAND,1
+envd = SDL_VIDEODRIVER,wayland
+envd = CLUTTER_BACKEND,wayland
+envd = XDG_SESSION_TYPE,wayland
+envd = XDG_CURRENT_DESKTOP,Hyprland
+envd = XDG_SESSION_DESKTOP,Hyprland
 
-monitor = eDP-1, 1920x1200@60.00, auto, 1
+envd = HYPRCURSOR_THEME,catppuccin-mocha-dark-cursors
+envd = HYPRCURSOR_SIZE,24
+envd = HYPRHOME,$HOME/.config/hypr
+envd = SSH_AUTH_SOCK,$XDG_RUNTIME_DIR/ssh-agent.socket
+# exec-once = dbus-update-activation-environment --systemd --all
 
 # ░▀█▀░█▀█░▀█▀░▀█▀
 # ░░█░░█░█░░█░░░█░
 # ░▀▀▀░▀░▀░▀▀▀░░▀░
 
 exec-once = systemctl --user start hyprpolkitagent
-exec-once = dbus-update-activation-environment --systemd --all
-exec-once = wl-paste --type text --watch cliphist store
-exec-once = wl-paste --type image --watch cliphist store
-
-# ░█▀█░█░█░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█▀▄░▀█▀
-# ░█▀█░█░█░░█░░█░█░▀▀█░░█░░█▀█░█▀▄░░█░
-# ░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░▀░
-
 exec-once = hypridle
 exec-once = nm-applet
-exec-once = blueman-applet 
-exec-once = discord --start-minimized
+exec-once = blueman-applet
 
 # ░█▀█░█▀█░█▀█░█▀█░█▀▄░█▀▀░█▀█░█▀▀░█▀▀
 # ░█▀█░█▀▀░█▀▀░█▀█░█▀▄░█▀▀░█░█░█░░░█▀▀
 # ░▀░▀░▀░░░▀░░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀▀▀
 
-exec-once = gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu'
+$iconTheme = 'Papirus-Dark'
+$gtkTheme = 'default'
+$font = 'NotoSans Nerd Font Propo Regular 9'
+$documentFont = 'NotoSerif Nerd Font Propo Regular 9'
+$monoFont = 'CaskaydiaMono Nerd Font Mono Regular 14'
 
-exec-once = gsettings set org.gnome.desktop.interface font-name $font
-exec-once = gsettings set org.gnome.desktop.interface document-font-name $documentFont
-exec-once = gsettings set org.gnome.desktop.interface monospace-font-name $monoFont
-exec-once = gsettings set org.gnome.desktop.interface font-hinting 'full'
-exec-once = gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
-exec-once = gsettings set org.gnome.desktop.interface font-rga-order 'rgb'
-exec-once = gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
-exec-once = gsettings set org.gnome.desktop.interface color-scheme 'default'
-exec-once = gsettings set org.gnome.desktop.sounds event-sounds true
-exec-once = gsettings set org.gnome.desktop.sounds input-feedback-sounds true
+exec = gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu'
 
-exec-once = gsettings set org.gnome.desktop.interface icon-theme $iconTheme
-exec-once = gsettings set org.gnome.desktop.interface cursor-theme $cursorTheme
-exec-once = gsettings set org.gnome.desktop.interface cursor-size $cursorSize
+exec = gsettings set org.gnome.desktop.interface font-name $font
+exec = gsettings set org.gnome.desktop.interface document-font-name $documentFont
+exec = gsettings set org.gnome.desktop.interface monospace-font-name $monoFont
+exec = gsettings set org.gnome.desktop.interface font-hinting 'full'
+exec = gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
+exec = gsettings set org.gnome.desktop.interface font-rga-order 'rgb'
+exec = gsettings set org.gnome.desktop.interface text-scaling-factor 1.0
+exec = gsettings set org.gnome.desktop.interface color-scheme 'default'
+exec = gsettings set org.gnome.desktop.sounds event-sounds true
+exec = gsettings set org.gnome.desktop.sounds input-feedback-sounds true
 
-exec-once = gsettings set org.gnome.desktop.interface gtk-theme $gtkTheme
-exec-once = gsettings set org.gnome.desktop.interface toolbar-icons-size 'small'
-exec-once = gsettings set org.gnome.desktop.interface toolbar-style 'icons'
-exec-once = nwg-look -x
+exec = gsettings set org.gnome.desktop.interface icon-theme $iconTheme
+exec = gsettings set org.gnome.desktop.interface cursor-theme $HYPRCURSOR_THEME
+exec = gsettings set org.gnome.desktop.interface cursor-size $HYPRCURSOR_SIZE
 
-# ░█▀▀░█▀█░█░░░█▀█░█▀▄░░░█▀▀░█▀▀░█░█░█▀▀░█▄█░█▀▀
-# ░█░░░█░█░█░░░█░█░█▀▄░░░▀▀█░█░░░█▀█░█▀▀░█░█░█▀▀
-# ░▀▀▀░▀▀▀░▀▀▀░▀▀▀░▀░▀░░░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀░▀░▀▀▀
-
-# source = $HOME/.config/hypr/themes/TokyoNight.conf
-
-# ░█▀▀░█░█░█▀▄░█▀▀░█▀█░█▀▄
-# ░█░░░█░█░█▀▄░▀▀█░█░█░█▀▄
-# ░▀▀▀░▀▀▀░▀░▀░▀▀▀░▀▀▀░▀░▀
-
-# exec-once = hyprctl setcursor $cursorTheme $cursorSize
-
-
-# ░█▀▀░█▀█░█▀█░▀█▀
-# ░█▀▀░█░█░█░█░░█░
-# ░▀░░░▀▀▀░▀░▀░░▀░
-
-
+exec = gsettings set org.gnome.desktop.interface gtk-theme $gtkTheme
+exec = gsettings set org.gnome.desktop.interface toolbar-icons-size 'small'
+exec = gsettings set org.gnome.desktop.interface toolbar-style 'icons'
+exec = nwg-look -x
 
 # ░█░█░█░█░█▀█░█▀▄░█░░░█▀█░█▀█░█▀▄░░░█▀▀░█▀█░█▀█░█▀▀░▀█▀░█▀▀
 # ░█▀█░░█░░█▀▀░█▀▄░█░░░█▀█░█░█░█░█░░░█░░░█░█░█░█░█▀▀░░█░░█░█
 # ░▀░▀░░▀░░▀░░░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀░░░░▀▀▀░▀▀▀░▀░▀░▀░░░▀▀▀░▀▀▀
 
+# source = $HOME/.config/hypr/themes/TokyoNight.conf
+
+monitor = eDP-1, 1920x1200@60.00, auto, 1
+
 general {
-  gaps_in = 5
-  gaps_out = 10
   border_size = 2
-  col.active_border = rgb(565f89)
-  col.inactive_border = rgb(16161E)
-  resize_on_border = true
-  allow_tearing = false
+  no_border_on_floating = false
+  gaps_in = 5
+  gaps_out = 12
+  # float_gaps = 0
+  gaps_workspaces = 0
+  col.inactive_border = 0xff444444
+  col.active_border = 0xffffffff
+  col.nogroup_border = 0xffffaaff
+  col.nogroup_border_active = 0xffff00ff
   layout = dwindle
+  no_focus_fallback = false
+  resize_on_border = false
+  extend_border_grab_area = 15
+  hover_icon_on_border = true
+  allow_tearing = false
+  resize_corner = 0
+  snap {
+    enabled = false
+    window_gap = 10
+    monitor_gap = 10
+    border_overlap = false
+    # respect_gaps = false
+  }
 }
 
 decoration {
-  rounding = 16
+  rounding = 5
+  rounding_power = 2.0
   active_opacity = 1.0
   inactive_opacity = 1.0
+  fullscreen_opacity = 1.0
+  dim_inactive = false
+  dim_strength = 0.5
+  dim_special = 0.2
+  dim_around = 0.4
+  screen_shader =
+  border_part_of_window = true
+  blur {
+    enabled = false
+    size = 8
+    passes = 1
+    ignore_opacity = true
+    new_optimizations = true
+    xray = false
+    noise = 0.0117
+    contrast = 0.8916
+    brightness = 0.8172
+    vibrancy = 0.1696
+    vibrancy_darkness = 0.0
+    special = true
+    popups = false
+    popups_ignorealpha = 0.2
+    input_methods = false
+    input_methods_ignorealpha = 0.2
+  }
   shadow {
-    color = rgb(565f89)
-    color_inactive = rgb(16161E)
     enabled = false
     range = 4
     render_power = 3
-    ignore_window = true
     sharp = false
-    # scale = 0.99
-  }
-  blur {
-    enabled = true
-    size = 3
-    passes = 1
-    vibrancy = 0.1696
-    xray = false
+    ignore_window = true
+    color = 0xee1a1a1a
+    color_inactive = 0xee1a1a1a
+    offset = 0 0
+    scale = 1.0
   }
 }
 
 animations {
   enabled = yes, please :)
+  first_launch_animation = true
+  workspace_wraparound = false
 
   bezier = easeOutQuint,0.23,1,0.32,1
   bezier = easeInOutCubic,0.65,0.05,0.36,1
@@ -177,6 +170,149 @@ animations {
   animation = workspacesOut, 1, 1.94, almostLinear, fade
 }
 
+input {
+  kb_model = abnt2
+  kb_layout = br
+  kb_variant = 
+  kb_options =
+  kb_rules =
+  kb_file =
+  numlock_by_default = true
+  resolve_binds_by_sym = false
+  repeat_rate = 25
+  repeat_delay = 600
+  sensitivity = 0.0
+  accel_profile =
+  force_no_accel = false
+  left_handed = false
+  scroll_points =
+  scroll_button = 0
+  scroll_button_lock = false
+  scroll_factor = 1.0
+  natural_scroll = false
+  follow_mouse = 1
+  follow_mouse_threshold = 0.0
+  focus_on_close = 0
+  mouse_refocus = 0
+  float_switch_override_focus = 1
+  special_fallthrough = false
+  off_window_axis_events = 1
+  emulate_discrete_scroll = 1
+  touchpad {
+    disable_while_typing = true
+    natural_scroll = false
+    scroll_factor = 0.5 # 1.0
+    middle_button_emulation = false
+    tap_button_map =
+    clickfinger_behavior = false
+    tap-to-click = true
+    drag_lock = 2
+    tap-and-drag = true
+    flip_x = false
+    flip_y = false
+    # drag_3fg = 0
+  }
+  touchdevice {
+    transform = -1
+    output = [[Auto]]
+    enabled = true
+  }
+  tablet {
+    transform = -1
+    output =
+    region_position = 0 0
+    absolute_region_position = false
+    region_size = 0 0
+    relative_input = false
+    left_handed = false
+    active_area_size = 0 0
+    active_area_position = 0 0
+  }
+}
+
+device {
+  name = ven_04f3:00-04f3:325f-touchpad
+  sensitivity = 0.7
+  natural_scroll = true
+  accel_profile = flat
+}
+
+gestures {
+  workspace_swipe = false
+  workspace_swipe_fingers = 3
+  workspace_swipe_min_fingers = false
+  workspace_swipe_distance = 300
+  workspace_swipe_touch = false
+  workspace_swipe_invert = true
+  workspace_swipe_touch_invert = false
+  workspace_swipe_min_speed_to_force = 30
+  workspace_swipe_cancel_ratio = 0.5
+  workspace_swipe_create_new = true
+  workspace_swipe_direction_lock = true
+  workspace_swipe_direction_lock_threshold = 10
+  workspace_swipe_forever = false
+  workspace_swipe_use_r = false
+}
+
+group {
+  auto_group = true
+  insert_after_current = true
+  focus_removed_window = true
+  drag_into_group = 1
+  merge_groups_on_drag = true
+  merge_groups_on_groupbar = true
+  merge_floated_into_tiled_on_groupbar = false
+  group_on_movetoworkspace = false
+  col.border_active = 0x66ffff00
+  col.border_inactive = 0x66777700
+  col.border_locked_active = 0x66ff5500
+  col.border_locked_inactive = 0x66775500
+  groupbar {
+
+  }
+}
+
+misc {
+  force_default_wallpaper = -1
+  disable_hyprland_logo = false
+}
+
+binds {
+  # workspace_back_and_forth = true
+  # allow_workspace_cycles = true
+}
+
+xwayland {
+  force_zero_scaling = true
+  use_nearest_neighbor = true
+  enabled = true
+}
+
+opengl {
+
+}
+
+render {
+
+}
+
+cursor {
+  default_monitor = eDP-1
+  sync_gsettings_theme = false
+}
+
+ecosystem {
+
+}
+
+experimental {
+
+}
+
+debug {
+
+}
+
 dwindle {
   pseudotile = true
   preserve_split = true
@@ -186,57 +322,20 @@ master {
   new_status = slave
 }
 
-misc {
-  force_default_wallpaper = -1
-  disable_hyprland_logo = false
-}
-
-xwayland {
-  force_zero_scaling = true
-  use_nearest_neighbor = true
-  enabled = true
-}
-
-# ░▀█▀░█▀█░█▀█░█░█░▀█▀
-# ░░█░░█░█░█▀▀░█░█░░█░
-# ░▀▀▀░▀░▀░▀░░░▀▀▀░░▀░
-
-input {
-  kb_layout = br
-  kb_variant = 
-  kb_model = abnt2
-  kb_options =
-  kb_rules =
-  numlock_by_default = true
-  follow_mouse = 1
-  sensitivity = 0.1
-
-  touchpad {
-    natural_scroll = true
-    disable_while_typing = false
-    scroll_factor = 0.5
-  }
-}
-
-gestures {
-  workspace_swipe = false
-}
-
-device {
-  name = epic-mouse-v1
-  sensitivity = -0.5
-}
 
 # ░█░█░█▀▀░█░█░█▀▄░▀█▀░█▀█░█▀▄░█▀▀
 # ░█▀▄░█▀▀░░█░░█▀▄░░█░░█░█░█░█░▀▀█
 # ░▀░▀░▀▀▀░░▀░░▀▀░░▀▀▀░▀░▀░▀▀░░▀▀▀
 
-binds {
-  # workspace_back_and_forth = true
-  # allow_workspace_cycles = true
-}
+$mainMod = SUPER
+$terminal = wezterm
+$fileManager = $HYPRHOME/scripts/term-launch yazi
+$menu = rofi -show drun
+$editor = code
 
-bindr = $mainMod, $mainMod_L, exec, hyprpanel t dashboardmenu
+exec-once = wl-paste --type text --watch cliphist store
+exec-once = wl-paste --type image --watch cliphist store
+
 bind = $mainMod, L, exec, loginctl lock-session
 
 bind = $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
@@ -306,16 +405,18 @@ bindl = , XF86AudioPrev, exec, playerctl previous
 windowrulev2 = nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0
 windowrulev2 = suppressevent maximize, class:.*
 
-windowrulev2 = bordercolor rgb(ff0000), tag:onfocus
-
 windowrulev2 = float,class:^(blueman-manager)$
 windowrulev2 = float,class:^(nm-connection-editor)$
 windowrulev2 = float,class:^(org.pulseaudio.pavucontrolr)$
 windowrulev2 = float,class:^(kvantummanager)$
 windowrulev2 = float,class:^(nwg-look)$
 windowrulev2 = float,class:^(qt5ct)$
-windowrulev2 = float,class:^(qt6ct)$
 # windowrulev2 = float,class:^(org.wezfurlong.wezterm)$
 # windowrulev2 = float,class:^(Spotify)$
 # windowrulev2 = float,class:^(discord)$
-windowrulev2 = maxsize 50% 50%,floating:1
+
+# ░█▀█░█░█░▀█▀░█▀█░█▀▀░▀█▀░█▀█░█▀▄░▀█▀
+# ░█▀█░█░█░░█░░█░█░▀▀█░░█░░█▀█░█▀▄░░█░
+# ░▀░▀░▀▀▀░░▀░░▀▀▀░▀▀▀░░▀░░▀░▀░▀░▀░░▀░
+
+exec-once = discord --start-minimized
